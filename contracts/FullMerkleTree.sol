@@ -38,7 +38,7 @@ library FullMerkleTree {
       // for (uint256 j = 0; j < levelNodes; j++) {
       //   self.nodes[i][j] = zero;
       // }
-
+      // USE THIS INSTEAD
       self.nodes[i] = new uint256[](0);
       self.zeroes[i] = zero;
       zero = PoseidonT3.poseidon([zero, zero]);
@@ -58,7 +58,7 @@ library FullMerkleTree {
   }
 
   function getMembers (TreeData storage self) public view returns (uint256[] memory) {
-    return self.nodes[0];
+    return self.nodes[0]; // use this to get the nodes, you will have to compare with the self.zeroes to get the actual members
   }
 
   function insert (TreeData storage self, uint256 leaf) public {
